@@ -1,2 +1,31 @@
-# Spring Boot sensitive files
-src/main/resources/application.properties
+# Maven / Java
+target/
+*.class
+*.jar
+*.war
+*.iml
+*.log
+
+# IDE files (VSCode, IntelliJ)
+.vscode/
+.idea/
+*.ipr
+*.iws
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Database / secrets
+premier-league-fantasy-db/*.csv
+*.env
+application.properties
+application.yml
+
+# Maven Wrapper (optional if you want others to build)
+.mvn/wrapper/maven-wrapper.jar
+
+# Test reports
+surefire-reports/
+*.dump

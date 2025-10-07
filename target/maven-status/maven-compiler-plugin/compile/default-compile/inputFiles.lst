@@ -1,1 +1,4 @@
-/home/martimsbaltazar/Desktop/code/premier-league-fantasy/src/main/java/com/pl/premier_zone/PremierZoneApplication.java
+/home/mbaltazar/code/az-204/premier-league-fantasy/src/main/java/com/pl/premier_zone/PremierZoneApplication.java
+/home/mbaltazar/code/az-204/premier-league-fantasy/src/main/java/com/pl/premier_zone/player/Player.java
+/home/mbaltazar/code/az-204/premier-league-fantasy/src/main/java/com/pl/premier_zone/player/PlayerRepository.java
+/home/mbaltazar/code/az-204/premier-league-fantasy/src/main/java/com/pl/premier_zone/player/PlayerService.java
