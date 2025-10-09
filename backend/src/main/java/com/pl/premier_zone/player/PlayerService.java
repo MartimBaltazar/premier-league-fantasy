@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class PlayerService {
@@ -20,7 +22,7 @@ public class PlayerService {
         return playerRepository.findAll();
     }
 
-    public List<Player> getPlayersFromTeam(String teamName){
+    public List<Player> getPlayersByTeam(String teamName){
         return playerRepository.findAll().stream().filter(player -> teamName.equals(player.getTeam())).collect(Collectors.toList());
     }
 
@@ -29,16 +31,16 @@ public class PlayerService {
     }
 
     public List<Player> getPlayersByPosition(String searchText){
-        return playerRepository.findAll().stream(player -> player.getPosition().toLowerCase().contains(searchText.toLowerCase())).collect(Collector.toList());
+        return playerRepository.findAll().stream().filter(player -> player.getPosition().toLowerCase().contains(searchText.toLowerCase())).collect(Collectors.toList());
     }
 
 
     public List<Player> getPlayersByNation(String searchText){
-        return playerRepository.findAll().stream(player -> player.getNation().toLowerCase().contains(searchText.toLowerCase())).collect(Collector.toList());
+        return playerRepository.findAll().stream().filter(player -> player.getNation().toLowerCase().contains(searchText.toLowerCase())).collect(Collectors.toList());
     }
     
     public List<Player> getPlayersByTeamandPosition(String team, String position){
-        return playerRepository.findAll().stream(player -> team.equals(player.getTeam()) && position.equals(player.getPosition()));
+        return playerRepository.findAll().stream().filter(player -> team.equals(player.getTeam()) && position.equals(player.getPosition())).collect(Collectors.toList());
     }
 
     public Player addPlayer(Player player){
@@ -50,10 +52,10 @@ public class PlayerService {
         Optional<Player> existingPlayer = playerRepository.findById(updatedPlayer.getId());
 
         if (existingPlayer.isPresent()){
-            player playerUpdated = existingPlayer.get();
+            Player playertoUpdate = existingPlayer.get();
             playertoUpdate.setName(updatedPlayer.getName());
-            playertoUpdate.setName(updatedPlayer.getName());
-            playertoUpdate.setName(updatedPlayer.getName());
+            playertoUpdate.setPosition(updatedPlayer.getPosition());
+            playertoUpdate.setNation(updatedPlayer.getNation());
 
             playerRepository.save(playertoUpdate);
             return playertoUpdate;
@@ -62,8 +64,8 @@ public class PlayerService {
         return null;
     }
     @Transactional
-    public void deletePlayer(Player playerToDelete){
-        playerRepository.deleteById(playerToDelete.getId());
+    public void deletePlayer(Long playerId){
+        playerRepository.deleteById(playerId);
     }
     
     }
