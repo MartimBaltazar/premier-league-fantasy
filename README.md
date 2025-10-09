@@ -33,7 +33,6 @@ This project allows users to browse Premier League players, manage teams, and vi
 - Java 21, Spring Boot 3
 - PostgreSQL
 - React, TypeScript, Vite
-- ShadCN UI, TailwindCSS
 - Maven, npm
 
 ---
