@@ -25,6 +25,11 @@ This project allows users to browse Premier League players, manage teams, and vi
   - Filtering by team, position, nation
   - Responsive UI
  
+#### Home Page
+![Home Page](assets/home_page.png)
+
+#### Player List
+![Player List](assets/player_page.png)
 
 ---
 
