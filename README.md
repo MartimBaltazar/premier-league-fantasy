@@ -44,7 +44,7 @@ This project allows users to browse Premier League players, manage teams, and vi
 
 ## Setup
 
-### Backend
+### Backend (Maven)
 
 ```bash
 cd backend
@@ -52,7 +52,24 @@ mvn clean install
 mvn spring-boot:run
 ```
 
-### Backend
+### Backend (Docker)
+
+```bash
+cd backend
+
+# Build the Docker image
+docker build -t backend_docker .
+
+# Run the container with environment variables
+docker run --network="host" \
+  -e SPRING_DATASOURCE_URL=jdbc:postgresql://<YOUR_DB_HOST>:5432/premier_league_fantasy \
+  -e SPRING_DATASOURCE_USERNAME=<db_user> \
+  -e SPRING_DATASOURCE_PASSWORD=<db_password> \
+  -p 9090:8080 \
+  backend_docker
+```
+
+### Frontend
 
 ```bash
 cd frontend
