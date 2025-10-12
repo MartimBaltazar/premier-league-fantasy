@@ -1,7 +1,7 @@
 // API service layer for player management
 // Update BASE_URL to match your backend endpoint
 
-const BASE_URL = 'http://localhost:9090/api/v1'; // Update this to your actual backend URL
+const BASE_URL = 'http://localhost:8080/api/v1'; // Update this to your actual backend URL
 
 export interface Player {
   name: string;
