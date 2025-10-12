@@ -30,4 +30,4 @@ application.yml
 surefire-reports/
 *.dump
 
-node_modules/
+frontend/node_modules/
