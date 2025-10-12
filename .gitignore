@@ -29,3 +29,5 @@ application.yml
 # Test reports
 surefire-reports/
 *.dump
+
+node_modules/
