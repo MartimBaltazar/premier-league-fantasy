@@ -69,16 +69,30 @@ docker run --network="host" \
   backend_docker
 ```
 
-### Frontend
+### Frontend (Npm)
 
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
+### Frontend (Docker)
+```bash
+cd frontend
+docker build -t frontend_dev .
+docker run --network="host" -v $(pwd):/app -e REACT_APP_API_URL=http://localhost:9090 frontend_dev
+```
+
+#### Notes:
+
+- -v $(pwd):/app mounts your local frontend code for live reload.
+
+- REACT_APP_API_URL tells the frontend where the backend is.
+
+- Open your browser at http://localhost:5173 (or the port Vite shows in the console).
 
 
-##API Endpoints
+### API Endpoints
 
 | Method | Endpoint                   | Description                |
 | ------ | -------------------------- | -------------------------- |
